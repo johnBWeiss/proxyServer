@@ -12,6 +12,25 @@ router.get("/:carNumber", (req, res) => {
         const title = []
         const value = []
         const result = []
+        const addedDetails = []
+        // const engineAndGear = {}
+        const items = {};
+        const itemArray = []
+
+        $('.carPageShowMoreDetails', html).each(function () {
+            const testData = $(this).text().split(":")
+            addedDetails.push(testData)
+            console.log(testData, 'testdata');
+        })
+
+        // engineAndGear[addedDetails[0][0]] = addedDetails[0][1]
+        // console.log(engineAndGear);
+        console.log(addedDetails, 'addeddetails')
+
+        items[addedDetails[0][0]] = addedDetails[0][1] // extracting engine gas type
+        items[addedDetails[1][0]] = addedDetails[1][1] // extracting current ownership
+
+        items[addedDetails[1][0]] = addedDetails[1][1] // extracting gear type
 
         $('dt', html).each(function () {
             const titleData = $(this).text().trim()
@@ -21,8 +40,7 @@ router.get("/:carNumber", (req, res) => {
             const valueData = $(this).text().trim()
             value.push(valueData)
         })
-        const items = {};
-        const itemArray = []
+
 
 
         title.forEach((element, index) => {
@@ -43,6 +61,7 @@ router.get("/:carNumber", (req, res) => {
             res.send(false)
         }
         else {
+            console.log(itemArray);
             res.send(itemArray)
         }
 

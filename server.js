@@ -14,15 +14,15 @@ const vgmUrl = 'https://www.find-car.co.il/car/private/74-938-33';
 // enable CORS
 app.use(cors());
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 5000
 
 app.use("/carFinance", carFinance);
 
 
 //Connect the Database
-connectDB().then(() => {
-    console.log("Connected to DB successfully");
-});
+// connectDB().then(() => {
+//     console.log("Connected to DB successfully");
+// });
 
 
 
