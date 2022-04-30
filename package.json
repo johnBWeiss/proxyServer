@@ -1,0 +1,24 @@
+{
+  "name": "proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "nodeStart":"node index.js",
+    "nodemon":"npm run nodeStart"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.0",
+    "got": "^10.4.0",
+    "jsdom": "^16.2.2",
+    "nodemon": "^2.0.15"
+  }
+}
