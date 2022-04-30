@@ -1,30 +1,11 @@
-// packages import
 const express = require("express");
-const app = express();
-const cors = require("cors");
+const router = express.Router();
 const axios = require("axios");
 const cheerio = require('cheerio');
 
-const vgmUrl = 'https://www.find-car.co.il/car/private/74-938-33';
 
 
-// enable CORS
-app.use(cors());
-// set the port on which our app wil run
-// important to read from environment variable if deploying
-const port = process.env.PORT || 5000;
-
-// basic string route to prevent Glitch error
-app.get("/", (req, res) => {
-    // replace with a custom URL as required
-    const backendUrl = "https://www.find-car.co.il/car/private/74-938-33";
-    // return the data without modification
-    axios.get(backendUrl).then(response => res.send(response.data));
-
-});
-
-// the route we're working with
-app.get("/users:carNumber", (req, res) => {
+router.get("/:carNumber", (req, res) => {
     axios(`https://meshumeshet.com/c/${req.params.carNumber}`).then(response => {
         const html = response.data
         const $ = cheerio.load(html)
@@ -78,7 +59,5 @@ app.get("/users:carNumber", (req, res) => {
     });
 });
 
-// console text when app is running
-app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
-});
+
+module.exports = router;
