@@ -13,10 +13,11 @@ async function screenShot(searchResults) {
     let image = await page.screenshot({ path: loc });
 
     await browser.close();
-    console.log(image);
-    image = image.toString('base64')
+    // console.log(image);
+    // image = image.toString('base64')
+
     // return { ...searchResults, imageCode: image }
-    return image
+    return id
 
 }
 
@@ -77,10 +78,10 @@ router.get('/google/:searchWord', async (req, res) => {
     const arrayOfImages = []
     for (let i = 0; i < 6; i++) {
         test = await screenShot(searchResults[i].link)
-        test = test.toString('base64')
-        test = 'data:image/png;base64,' + test
+        // test = test.toString('base64')
+        // test = 'data:image/png;base64,' + test
 
-        searchResults[i].imageCode = test
+        searchResults[i].imageCode = `http://localhost:5000/pngs/${test}.png`
         arrayOfImages.push(searchResults[i])
     }
 
