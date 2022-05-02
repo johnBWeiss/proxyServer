@@ -1,2 +1,4 @@
 const carFinance = require("./carFinance");
-module.exports = { carFinance };
+const screenshots = require("./screenshots");
+
+module.exports = { carFinance, screenshots };

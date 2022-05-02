@@ -19,12 +19,13 @@ let browser;
     );
     console.log(searchResults);
     screen(searchResults)
+
 })()
     .catch(err => console.error(err))
     .finally(() => { browser?.close(); })
     ;
 
-async function screen(searchResults) {
+export async function screen(searchResults) {
     console.log(searchResults);
 
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
