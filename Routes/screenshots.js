@@ -4,20 +4,18 @@ const axios = require("axios");
 const puppeteer = require('puppeteer');
 const req = require("express/lib/request");
 
+
 async function screenShot(searchResults) {
-    const id = new Date().getTime().toString(36)
-    const loc = (`./public/pngs/${id}.png`)
-    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions'] });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.goto(searchResults);
-    let image = await page.screenshot({ path: loc });
+    let image = await page.screenshot({ path: 'buddy-screenshot.png' });
 
     await browser.close();
-    // console.log(image);
-    // image = image.toString('base64')
-
+    console.log(image);
+    image = image.toString('base64')
     // return { ...searchResults, imageCode: image }
-    return id
+    return image
 
 }
 
@@ -38,11 +36,11 @@ router.post('/screenShot', async (req, res) => {
         const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
         const page = await browser.newPage();
         await page.goto(req.body.link);
-        let image = await page.screenshot({ encoding: "base64" });
+        let image = await page.screenshot({ path: 'buddy-screenshot.png' });
 
         await browser.close();
         // console.log(image);
-        // image = image.toString('base64')
+        image = image.toString('base64')
         image = 'data:image/jpeg;base64,' + image
         res.send(image);
     } catch (error) {
@@ -57,7 +55,7 @@ router.post('/screenShot', async (req, res) => {
 
 router.get('/google/:searchWord', async (req, res) => {
 
-
+    console.time('start')
     let browser;
     const searchQuery = req.params.searchWord;
 
@@ -79,14 +77,14 @@ router.get('/google/:searchWord', async (req, res) => {
     for (let i = 0; i < 6; i++) {
         test = await screenShot(searchResults[i].link)
         // test = test.toString('base64')
-        // test = 'data:image/png;base64,' + test
+        test = 'data:image/png;base64,' + test
 
-        searchResults[i].imageCode = `http://localhost:5000/pngs/${test}.png`
+        searchResults[i].imageCode = test
         arrayOfImages.push(searchResults[i])
     }
 
     browser?.close();
-
+    console.timeEnd('start')
     res.send(arrayOfImages)
 })
 module.exports = router;
