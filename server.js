@@ -6,11 +6,14 @@ const { connectDB } = require("./Models/modelsIndex");
 const { carFinance } = require("./Routes/router");
 const { screenshots } = require("./Routes/router");
 const bodyParser = require("body-parser");
+const path = require('path')
+
 
 
 app.use(bodyParser.json())
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('public'))
 require("dotenv").config();
 
 

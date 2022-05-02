@@ -4,12 +4,13 @@ const axios = require("axios");
 const puppeteer = require('puppeteer');
 const req = require("express/lib/request");
 
-
 async function screenShot(searchResults) {
-    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    const id = new Date().getTime().toString(36)
+    const loc = (`./public/pngs/${id}.png`)
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions'] });
     const page = await browser.newPage();
     await page.goto(searchResults);
-    let image = await page.screenshot({ path: 'buddy-screenshot.png' });
+    let image = await page.screenshot({ path: loc });
 
     await browser.close();
     console.log(image);
