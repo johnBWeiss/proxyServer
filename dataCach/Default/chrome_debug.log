@@ -1,3 +1,0 @@
-[0504/011850.774:WARNING:spdy_session.cc(3541)] Received HEADERS for invalid stream 11
-[0504/011850.886:WARNING:spdy_session.cc(3541)] Received HEADERS for invalid stream 21
-[0504/011850.887:WARNING:spdy_session.cc(3541)] Received HEADERS for invalid stream 19

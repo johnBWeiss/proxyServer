@@ -1,3 +1,14 @@
-2022/05/04-01:18:49.306 3ad0 Reusing MANIFEST C:\Users\Yoni\Desktop\vue\proxy\dataCach\Default\Local Storage\leveldb/MANIFEST-000001
-2022/05/04-01:18:49.307 3ad0 Recovering log #33
-2022/05/04-01:18:49.307 3ad0 Reusing old log C:\Users\Yoni\Desktop\vue\proxy\dataCach\Default\Local Storage\leveldb/000033.log 
+2022/05/04-10:18:37.393 2728 Reusing MANIFEST C:\Users\Yoni\Desktop\vue\proxy\dataCach\Default\Local Storage\leveldb/MANIFEST-000001
+2022/05/04-10:18:37.394 2728 Recovering log #49
+2022/05/04-10:18:37.394 2728 Level-0 table #51: started
+2022/05/04-10:18:37.398 2728 Level-0 table #51: 72553 bytes OK
+2022/05/04-10:18:37.401 2728 Delete type=0 #49
+2022/05/04-10:18:37.401 2728 Compacting 4@0 + 1@1 files
+2022/05/04-10:18:37.406 2728 Generated table #53@0: 42 keys, 55806 bytes
+2022/05/04-10:18:37.406 2728 Compacted 4@0 + 1@1 files => 55806 bytes
+2022/05/04-10:18:37.408 2728 compacted to: files[ 0 1 0 0 0 0 0 ]
+2022/05/04-10:18:37.409 2728 Delete type=2 #40
+2022/05/04-10:18:37.409 2728 Delete type=2 #42
+2022/05/04-10:18:37.409 2728 Delete type=2 #45
+2022/05/04-10:18:37.409 2728 Delete type=2 #48
+2022/05/04-10:18:37.409 2728 Delete type=2 #51
