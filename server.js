@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { connectDB } = require("./Models/modelsIndex");
+// const { connectDB } = require("./Models/modelsIndex");
 const { carFinance } = require("./Routes/router");
 const { screenshots } = require("./Routes/router");
 const bodyParser = require("body-parser");
