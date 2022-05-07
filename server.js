@@ -2,21 +2,28 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { connectDB } = require("./Models/modelsIndex");
+// const { connectDB } = require("./Models/modelsIndex");
 const { carFinance } = require("./Routes/router");
+const { screenshots } = require("./Routes/router");
+const bodyParser = require("body-parser");
+const path = require('path')
 
 
+
+app.use(bodyParser.json())
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('public'))
 require("dotenv").config();
-
-const vgmUrl = 'https://www.find-car.co.il/car/private/74-938-33';
 
 
 // enable CORS
-app.use(cors());
+app.use(cors('*'));
 
 const port = process.env.PORT || 5000
 
 app.use("/carFinance", carFinance);
+app.use("/screenshots", screenshots);
 
 
 //Connect the Database
